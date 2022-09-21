@@ -50,7 +50,7 @@ class UserController extends Controller
     
 
     $user = new User();
-    
+
     $user->nombre   = $request->nombre;
     $user->foto     =  $request->foto;
     $user->estado   =  $request->estado;
@@ -103,7 +103,13 @@ class UserController extends Controller
         $user->created_by   = $request->created_by;
         $user->updated_by   =  $request->updated_by;
 
-        $task->save();
+        $res = $user->save();
+
+    if ($res) {
+        return response()->json(['message' => 'usuario actualizado'], 201);
+    }
+    return response()->json(['message' => 'Error al actualizar usuario'], 500);
+    }
     }
     
 

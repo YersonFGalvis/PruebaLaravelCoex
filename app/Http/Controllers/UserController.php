@@ -110,7 +110,7 @@ class UserController extends Controller
     }
     return response()->json(['message' => 'Error al actualizar usuario'], 500);
     }
-    }
+    
     
 
     /**
